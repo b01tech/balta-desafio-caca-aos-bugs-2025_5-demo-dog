@@ -12,4 +12,6 @@ var app = builder.Build();
 
 app.MapEndpoints();
 
+await app.Services.ApplyMigrationsAsync();
+
 app.Run();
