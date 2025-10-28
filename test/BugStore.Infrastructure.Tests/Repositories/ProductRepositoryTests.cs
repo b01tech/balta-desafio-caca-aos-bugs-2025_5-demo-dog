@@ -2,6 +2,8 @@ using BugStore.Domain.Entities;
 using BugStore.Infrastructure.Tests.Builders;
 using BugStore.Infra.Repositories;
 
+#pragma warning disable CA2016 // Forward the 'CancellationToken' parameter to methods
+
 namespace BugStore.Infrastructure.Tests.Repositories;
 
 public class ProductRepositoryTests : TestBase
