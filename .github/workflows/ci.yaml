@@ -26,4 +26,4 @@ jobs:
         run: dotnet build src/BugStore.sln --no-restore --configuration Release
       # Run tests
       - name: Run tests
-        run: dotnet test src/BugStore.sln --no-build --configuration Release --verbosity normal"
+        run: dotnet test src/BugStore.sln --no-build --configuration Release --verbosity normal
