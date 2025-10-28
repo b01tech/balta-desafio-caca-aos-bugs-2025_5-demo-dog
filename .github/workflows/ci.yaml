@@ -1,0 +1,29 @@
+name: CI Pipeline BugStore
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout
+      - name: Checkout code
+        uses: actions/checkout@v4
+      # Instalar o .NET SDK
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "9.0.x"
+      # Restore
+      - name: Restore dependencies
+        run: dotnet restore src/BugStore.sln
+      # Build
+      - name: Build solution
+        run: dotnet build src/BugStore.sln --no-restore --configuration Release
+      # Run tests
+      - name: Run tests
+        run: dotnet test src/BugStore.sln --no-build --configuration Release --verbosity normal"
